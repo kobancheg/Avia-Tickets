@@ -16,8 +16,11 @@ class Locations {
     const [countries, cities] = response;
     this.countries = countries;
     this.cities = cities;
-    
+
     return response;
+  }
+  getCitiesByCountryCode(code) {
+    return this.cities.filter(city => city.country_code === code);
   }
 }
 
