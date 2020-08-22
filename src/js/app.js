@@ -21,12 +21,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
   async function onFormSubmit() {
     // собрать данные из инпутов
-    const origin = formUI.originValue;
-    const destination = formUI.destinationValue;
+    const origin = locations.getCityCodeByKey(formUI.originValue);
+    const destination = locations.getCityCodeByKey(formUI.destinationValue);
     const depart_date = formUI.departDateValue;
     const return_date = formUI.returnDateValue;
-
-    console.log(origin, destination, depart_date, return_date)
+    // CODE, CODE, 2019-09, 2019-10
+    console.log(origin, destination, depart_date, return_date);
+    await locations.fetchTickets({
+      origin,
+      destination,
+      depart_date,
+      return_date
+    })
   }
 
 })

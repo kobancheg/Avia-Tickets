@@ -18,7 +18,12 @@ class Locations {
     this.countries = this.serializeCountries(countries);
     this.cities = this.serializeCities(cities);
     this.shortCitiesList = this.createShortCitiesList(this.cities);
+
     return response;
+  }
+
+  getCityCodeByKey(key) {
+    return this.cities[key].code;
   }
 
   createShortCitiesList(cities) {
@@ -54,8 +59,9 @@ class Locations {
     return this.countries[code].name;
   }
 
-  getCitiesByCountryCode(code) {
-    return this.cities.filter(city => city.country_code === code);
+  async fetchTickets(params) {
+    const response = await this.api.prices(params);
+    console.log(response);
   }
 }
 
