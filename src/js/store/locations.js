@@ -29,6 +29,14 @@ class Locations {
     return this.cities[key].code;
   }
 
+  getAirlineNameByCode(code) {
+    return this.airlines[code] ? this.airlines[code].name : '';
+  }
+
+  getAirlineLogoByCode(code) {
+    return this.airlines[code] ? this.airlines[code].logo : '';
+  }
+
   createShortCitiesList(cities) {
     // { 'City, Country': null }
     // Object.entries => [key, value]
