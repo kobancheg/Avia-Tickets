@@ -1,4 +1,5 @@
 import currencyUI from './currency';
+import favorites from '../store/favorites' 
 
 class TicketsUI {
   constructor(currency) {
@@ -21,8 +22,16 @@ class TicketsUI {
       const template = TicketsUI.ticketTemplate(ticket, currency);
       fragment += template;
     });
-
+    
     this.container.insertAdjacentHTML('afterbegin', fragment);
+    this.getFavoriteBtn();
+  }
+
+  getFavoriteBtn() {
+    const favoriteBtn = document.querySelectorAll('.favorite');
+    favoriteBtn.forEach((item) => {
+      item.addEventListener('click', favorites.addTicketToFavorites);
+    });
   }
 
   clearContainer() {
@@ -67,6 +76,9 @@ class TicketsUI {
             <div class="ticket-additional-info">
               <span class="ticket-transfers">Пересадок: ${ticket.transfers}</span>
               <span class="ticket-flight-number">Номер рейса: ${ticket.flight_number}</span>
+            </div>
+            <div class="card-action">
+              <a class="waves-effect waves-light btn favorite">Button</a>
             </div>
           </div>
         </div>
