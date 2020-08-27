@@ -39,7 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     ticketsUI.renderTickets(locations.lastSearch);
+
   }
-
 })
-

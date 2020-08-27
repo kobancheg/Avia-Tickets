@@ -1,5 +1,5 @@
 import currencyUI from './currency';
-import favorites from '../store/favorites' 
+import favoritesStore from '../store/favorites' 
 
 class TicketsUI {
   constructor(currency) {
@@ -24,14 +24,7 @@ class TicketsUI {
     });
     
     this.container.insertAdjacentHTML('afterbegin', fragment);
-    this.getFavoriteBtn();
-  }
-
-  getFavoriteBtn() {
-    const favoriteBtn = document.querySelectorAll('.favorite');
-    favoriteBtn.forEach((item) => {
-      item.addEventListener('click', favorites.addTicketToFavorites);
-    });
+    favoritesStore.getFavoriteBtn();
   }
 
   clearContainer() {
@@ -54,7 +47,7 @@ class TicketsUI {
   static ticketTemplate(ticket, currency) {
     return `
         <div class="col s12 m6">
-          <div class="card ticket-card">
+          <div class="card ticket-card" id="${ticket.id}">
             <div class="ticket-airline d-flex align-items-center">
               <img src="${ticket.airline_logo}" class="ticket-airline-img" />
               <span class="ticket-airline-name">${ticket.airline_name}</span>

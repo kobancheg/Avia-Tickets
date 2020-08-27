@@ -1,15 +1,23 @@
+import locations from './locations';
 class Favorites {
-  constructor(ticket) {
-    // console.log(ticket)
+  constructor() {
+    this.favoriteTickets = [];
   }
 
-  addTicketToFavorites(e) {
-    if (e.target.tagName === 'A') {
-      console.log('a was clicked!');
-    }
+  getFavoriteBtn() {
+    const favoriteBtn = document.querySelectorAll('.favorite');
+    favoriteBtn.forEach((item) => {
+      item.addEventListener('click', this.addTicketToFavorites);
+    });
+  }
+
+  addTicketToFavorites(element) {
+    const id = element.target.closest('div[id]').id;
+    const ticket = locations.lastSearch.find(item => item.id == id);
+    favoritesStore.favoriteTickets.push(ticket);
   }
 }
 
-const favorites = new Favorites();
+const favoritesStore = new Favorites();
 
-export default favorites;
+export default favoritesStore;
