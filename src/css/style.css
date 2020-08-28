@@ -31,6 +31,16 @@
   margin-right: auto;
 }
 
+.mx-1 {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.my-1 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
 /* Header styles */
 .header .brand-logo {
   position: static;
@@ -114,18 +124,17 @@
 
 .favorites-list .ticket-airline-img {
   max-width: 60px;
-  margin-left: 5px;
 }
 
 ul#favorites {
   width: 350px !important;
-  padding: 5px;
 }
 
 .favorites-list div {
-  border-bottom: 1px solid rgba(160,160,160,0.2);
+  border-bottom: 1px solid rgba(160, 160, 160, 0.2);
 }
 
-.favorites-list span {
-  padding: 3px;
+.favorites-list i.material-icons.right {
+  line-height: inherit;
+  font-size: 1.2rem;
 }
