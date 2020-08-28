@@ -26,7 +26,6 @@ class TicketsUI {
     
     this.container.insertAdjacentHTML('afterbegin', fragment);
     favoritesStore.getFavoriteBtn();
-    dropdownUI.getFavoritesArr();
   }
 
   clearContainer() {

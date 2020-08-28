@@ -5,13 +5,9 @@ class Dropdown {
     this.tickets = tickets;
   }
 
-
-
   getFavoritesArr() {
-    // const dropdownBtn = document.querySelector('.dropdown-trigger');
-    // dropdownBtn.addEventListener('click', element => {
-      return this.tickets;
-    // })
+    console.log(this.tickets);
+    return this.tickets;
   }
 }
 

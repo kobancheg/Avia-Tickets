@@ -17,9 +17,9 @@ class Favorites {
     this.favoriteTickets = favoritesStore.favoriteTickets.push(ticket);
   }
 
-  get favorites() {
-    return this.favoriteTickets;
-  }
+  // get favorites() {
+  //   return this.favoriteTickets;
+  // }
 }
 
 const favoritesStore = new Favorites();

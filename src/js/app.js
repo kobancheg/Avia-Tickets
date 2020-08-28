@@ -19,8 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 
   dropdownBtn.addEventListener('click', e => {
-    const tickets = dropdownUI.getFavoritesArr();
-    console.log(tickets);
+    e.preventDefault();
+    dropdownUI.getFavoritesArr();
   })
 
   // Handlers
