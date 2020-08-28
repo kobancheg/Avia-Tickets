@@ -1,6 +1,5 @@
 import currencyUI from './currency';
 import favoritesStore from '../store/favorites';
-import dropdownUI from '../views/dropdown';
 
 class TicketsUI {
   constructor(currency) {
@@ -72,7 +71,7 @@ class TicketsUI {
               <span class="ticket-flight-number">Номер рейса: ${ticket.flight_number}</span>
             </div>
             <div class="card-action">
-              <a class="waves-effect waves-light btn favorite">Button</a>
+              <a class="waves-effect waves-light btn favorite">ADD TO FAVORITES</a>
             </div>
           </div>
         </div>

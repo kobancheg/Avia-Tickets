@@ -1,4 +1,5 @@
 import locations from './locations';
+import dropdownUI from '../views/dropdown';
 class Favorites {
   constructor() {
     this.favoriteTickets = [];
@@ -6,7 +7,7 @@ class Favorites {
 
   getFavoriteBtn() {
     const favoriteBtn = document.querySelectorAll('.favorite');
-    favoriteBtn.forEach((item) => {
+    favoriteBtn.forEach((item) => { 
       item.addEventListener('click', this.addTicketToFavorites);
     });
   }
@@ -15,11 +16,9 @@ class Favorites {
     const id = element.target.closest('div[id]').id;
     const ticket = locations.lastSearch.find(item => item.id == id);
     this.favoriteTickets = favoritesStore.favoriteTickets.push(ticket);
+    dropdownUI.renderDropdownListTiskets(favoritesStore.favoriteTickets);
   }
 
-  // get favorites() {
-  //   return this.favoriteTickets;
-  // }
 }
 
 const favoritesStore = new Favorites();

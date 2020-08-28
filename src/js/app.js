@@ -4,23 +4,15 @@ import locations from './store/locations';
 import formUI from './views/form';
 import ticketsUI from './views/tickets';
 import currencyUI from './views/currency';
-import dropdownUI from './views/dropdown';
-
 
 document.addEventListener('DOMContentLoaded', () => {
   initApp();
   const form = formUI.form;
-  const dropdownBtn = document.querySelector('.dropdown-trigger');
 
   // Events
   form.addEventListener('submit', e => {
     e.preventDefault();
     onFormSubmit();
-  })
-
-  dropdownBtn.addEventListener('click', e => {
-    e.preventDefault();
-    dropdownUI.getFavoritesArr();
   })
 
   // Handlers

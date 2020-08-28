@@ -14,6 +14,10 @@
   justify-content: space-between;
 }
 
+.ml-1 {
+  margin-left: 1rem;
+}
+
 .ml-auto {
   margin-left: auto;
 }
@@ -106,4 +110,22 @@
   background: whitesmoke;
   font-weight: bold;
   font-size: 18px;
+}
+
+.favorites-list .ticket-airline-img {
+  max-width: 60px;
+  margin-left: 5px;
+}
+
+ul#favorites {
+  width: 350px !important;
+  padding: 5px;
+}
+
+.favorites-list div {
+  border-bottom: 1px solid rgba(160,160,160,0.2);
+}
+
+.favorites-list span {
+  padding: 3px;
 }
