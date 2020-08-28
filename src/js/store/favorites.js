@@ -14,7 +14,11 @@ class Favorites {
   addTicketToFavorites(element) {
     const id = element.target.closest('div[id]').id;
     const ticket = locations.lastSearch.find(item => item.id == id);
-    favoritesStore.favoriteTickets.push(ticket);
+    this.favoriteTickets = favoritesStore.favoriteTickets.push(ticket);
+  }
+
+  get favorites() {
+    return this.favoriteTickets;
   }
 }
 

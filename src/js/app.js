@@ -4,32 +4,40 @@ import locations from './store/locations';
 import formUI from './views/form';
 import ticketsUI from './views/tickets';
 import currencyUI from './views/currency';
+import dropdownUI from './views/dropdown';
+
 
 document.addEventListener('DOMContentLoaded', () => {
   initApp();
   const form = formUI.form;
+  const dropdownBtn = document.querySelector('.dropdown-trigger');
 
-  // Events
+  // Events
   form.addEventListener('submit', e => {
     e.preventDefault();
     onFormSubmit();
   })
 
-  // Handlers
+  dropdownBtn.addEventListener('click', e => {
+    const tickets = dropdownUI.getFavoritesArr();
+    console.log(tickets);
+  })
+
+  // Handlers
   async function initApp() {
     await locations.init();
     formUI.setAutoCompleteData(locations.shortCities);
   }
 
   async function onFormSubmit() {
-    // собрать данные из инпутов
+    // собрать данные из инпутов
     const origin = locations.getCityCodeByKey(formUI.originValue);
     const destination = locations.getCityCodeByKey(formUI.destinationValue);
     const depart_date = formUI.departDateValue;
     const return_date = formUI.returnDateValue;
     const currency = currencyUI.currencyValue;
-    // CODE, CODE, 2019-09, 2019-10
-    // console.log(origin, destination, depart_date, return_date);
+    // CODE, CODE, 2019-09, 2019-10
+    // console.log(origin, destination, depart_date, return_date);
     await locations.fetchTickets({
       origin,
       destination,
@@ -39,6 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     ticketsUI.renderTickets(locations.lastSearch);
-
   }
 })
+
+
