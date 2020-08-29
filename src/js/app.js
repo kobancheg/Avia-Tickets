@@ -34,8 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const ticket = locations.lastSearch.find(item => item.id == id);
       favorites.removeFromFavorites(ticket);
       dropdownUI.renderDropdownListTiskets(favorites.favoriteTickets);
-      element.target.innerText = 'add to favorite';
-      element.target.classList.remove('yellow', 'darken-2');
+      ticketsUI.returnFavoriteBtnColor(id);
     }
   });
 

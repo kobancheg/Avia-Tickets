@@ -14,7 +14,7 @@ class Favorites {
     if (isContain) {
       M.toast({ html: 'already added to favorites', classes: 'pink accent-4' });
     } else {
-      M.toast({ html: 'ticket has added to favorites', classes: 'green accent-4' });
+      M.toast({ html: 'ticket has added to favorites', classes: 'yellow darken-2' });
       this.favoriteTickets.push(ticket);
     }
   }
@@ -23,6 +23,7 @@ class Favorites {
     this.favoriteTickets = this.favoriteTickets.filter((item) => {
       return item !== ticket;
     })
+    M.toast({ html: 'removed from favorites', classes: 'yellow darken-2' });
   }
 
 }

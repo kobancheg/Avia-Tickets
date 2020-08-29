@@ -1,4 +1,5 @@
 import currencyUI from './currency';
+import { elementOrParentIsFixed } from 'materialize-css';
 
 class TicketsUI {
   constructor(currency) {
@@ -21,7 +22,7 @@ class TicketsUI {
       const template = TicketsUI.ticketTemplate(ticket, currency);
       fragment += template;
     });
-    
+
     this.container.insertAdjacentHTML('afterbegin', fragment);
     // favoritesStore.getFavoriteBtn();
   }
@@ -33,6 +34,12 @@ class TicketsUI {
   showEmptyMsg() {
     const template = TicketsUI.emptyMsgTemplate();
     this.container.insertAdjacentHTML('afterbegin', template);
+  }
+
+  returnFavoriteBtnColor(id) {
+    const element = document.getElementById(id).querySelector('a');
+    element.classList.remove('yellow', 'darken-2');
+    element.innerText = 'add to favorite';
   }
 
   static emptyMsgTemplate() {
