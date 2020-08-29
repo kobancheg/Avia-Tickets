@@ -28,6 +28,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  dropdownUI.ul.addEventListener('click', (element) => {
+    if (element.target.classList.contains('delete')) {
+      const id = element.target.closest('div[id]').id;
+      const ticket = locations.lastSearch.find(item => item.id == id);
+      favorites.removeFromFavorites(ticket);
+      dropdownUI.renderDropdownListTiskets(favorites.favoriteTickets);
+      element.target.innerText = 'add to favorite';
+      element.target.classList.remove('yellow', 'darken-2');
+    }
+  });
+
   // Handlers
   async function initApp() {
     await locations.init();

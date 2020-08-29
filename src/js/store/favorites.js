@@ -19,6 +19,12 @@ class Favorites {
     }
   }
 
+  removeFromFavorites(ticket) {
+    this.favoriteTickets = this.favoriteTickets.filter((item) => {
+      return item !== ticket;
+    })
+  }
+
 }
 
 const favoritesStore = new Favorites();

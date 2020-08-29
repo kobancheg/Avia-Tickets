@@ -27,26 +27,26 @@ class DropdownUI {
 
   static dropdownTemlate(ticket, currency) {
     return `
-    <li class="favorites-list">
+    <div class="favorites-list" id="${ticket.id}">
       <div class="ticket-airline d-flex align-items-center mx-1">
         <img src="${ticket.airline_logo}" class="ticket-airline-img" />
-        <span class="my-1">${ticket.airline_name}</span>
-        <button class="btn-small waves-effect waves-light pink darken-3 ml-auto" name="action">delete<i class="material-icons right">cancel</i>
+        <span>${ticket.airline_name}</span>
+        <button class="btn-small waves-effect waves-light pink darken-3 ml-auto delete" name="action">delete<i class="material-icons right">cancel</i>
         </button>
       </div>
       <div class="ticket-airline d-flex align-items-center justify-items-between mx-1">
-        <span class="my-1">${ticket.origin_name}</span>
-        <span class="my-1">${ticket.destination_name}</span>
+        <span>${ticket.origin_name}</span>
+        <span>${ticket.destination_name}</span>
       </div>
       <div class="ticket-airline d-flex align-items-center justify-items-between mx-1">
-        <span class="my-1">${ticket.departure_at}</span>
-        <span class="my-1">${currency}${ticket.price}</span>
+        <span>${ticket.departure_at}</span>
+        <span>${currency}${ticket.price}</span>
       </div>
       <div class="ticket-airline d-flex align-items-center justify-items-between mx-1">
-        <span class="my-1">Пересадок: ${ticket.transfers}</span>
-        <span class="my-1">Номер рейса: ${ticket.flight_number}</span>
+        <span>Пересадок: ${ticket.transfers}</span>
+        <span>Номер рейса: ${ticket.flight_number}</span>
       </div>
-    </li>
+    </div>
     `
   }
 }
