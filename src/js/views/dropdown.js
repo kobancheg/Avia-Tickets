@@ -13,8 +13,6 @@ class DropdownUI {
     let fragment = '';
     const currency = this.getCurrencySimbol();
 
-    console.log(tickets)
-
     tickets.forEach(ticket => {
       const template = DropdownUI.dropdownTemlate(ticket, currency);
       fragment += template;

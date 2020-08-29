@@ -1,22 +1,22 @@
-import locations from './locations';
-import dropdownUI from '../views/dropdown';
 class Favorites {
   constructor() {
     this.favoriteTickets = [];
   }
 
-  getFavoriteBtn() {
-    const favoriteBtn = document.querySelectorAll('.favorite');
-    favoriteBtn.forEach((item) => { 
-      item.addEventListener('click', this.addTicketToFavorites);
-    });
-  }
+  addTicketToFavorites(ticket) {
+    let isContain = false;
 
-  addTicketToFavorites(element) {
-    const id = element.target.closest('div[id]').id;
-    const ticket = locations.lastSearch.find(item => item.id == id);
-    this.favoriteTickets = favoritesStore.favoriteTickets.push(ticket);
-    dropdownUI.renderDropdownListTiskets(favoritesStore.favoriteTickets);
+    this.favoriteTickets.forEach(item => {
+      if (item === ticket) {
+        isContain = true;
+      }
+    });
+    if (isContain) {
+      M.toast({ html: 'already added to favorites', classes: 'pink accent-4' });
+    } else {
+      M.toast({ html: 'ticket has added to favorites', classes: 'green accent-4' });
+      this.favoriteTickets.push(ticket);
+    }
   }
 
 }

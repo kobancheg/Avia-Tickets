@@ -4,6 +4,8 @@ import locations from './store/locations';
 import formUI from './views/form';
 import ticketsUI from './views/tickets';
 import currencyUI from './views/currency';
+import favorites from './store/favorites';
+import dropdownUI from './views/dropdown';
 
 document.addEventListener('DOMContentLoaded', () => {
   initApp();
@@ -14,6 +16,17 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault();
     onFormSubmit();
   })
+
+  ticketsUI.container.addEventListener('click', (element) => {
+    if (element.target.classList.contains('favorite')) {
+      const id = element.target.closest('div[id]').id;
+      const ticket = locations.lastSearch.find(item => item.id == id);
+      favorites.addTicketToFavorites(ticket);
+      dropdownUI.renderDropdownListTiskets(favorites.favoriteTickets);
+      element.target.innerText = 'added to favorite';
+      element.target.classList.add('yellow', 'darken-2');
+    }
+  });
 
   // Handlers
   async function initApp() {

@@ -1,5 +1,4 @@
 import currencyUI from './currency';
-import favoritesStore from '../store/favorites';
 
 class TicketsUI {
   constructor(currency) {
@@ -24,7 +23,7 @@ class TicketsUI {
     });
     
     this.container.insertAdjacentHTML('afterbegin', fragment);
-    favoritesStore.getFavoriteBtn();
+    // favoritesStore.getFavoriteBtn();
   }
 
   clearContainer() {
