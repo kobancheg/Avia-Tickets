@@ -5,7 +5,7 @@ class TicketsUI {
   constructor(currency) {
     this.container = document.querySelector('.tickets-sections .row');
     this.getCurrencySimbol = currency.getCurrencySimbol.bind(currency);
-  };
+  }
 
   renderTickets(tickets) {
     this.clearContainer();
@@ -18,7 +18,7 @@ class TicketsUI {
     let fragment = '';
     const currency = this.getCurrencySimbol();
 
-    tickets.forEach(ticket => {
+    tickets.forEach((ticket) => {
       const template = TicketsUI.ticketTemplate(ticket, currency);
       fragment += template;
     });
@@ -47,7 +47,7 @@ class TicketsUI {
     <div class="tickets-empty-res-msg">
       По вашему запросу билетов не найдено.
     </div>
-    `
+    `;
   }
 
   static ticketTemplate(ticket, currency) {
@@ -81,7 +81,7 @@ class TicketsUI {
             </div>
           </div>
         </div>
-`
+`;
   }
 }
 

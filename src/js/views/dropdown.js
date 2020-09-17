@@ -13,7 +13,7 @@ class DropdownUI {
     let fragment = '';
     const currency = this.getCurrencySimbol();
 
-    tickets.forEach(ticket => {
+    tickets.forEach((ticket) => {
       const template = DropdownUI.dropdownTemlate(ticket, currency);
       fragment += template;
     });
@@ -47,7 +47,7 @@ class DropdownUI {
         <span>Номер рейса: ${ticket.flight_number}</span>
       </div>
     </div>
-    `
+    `;
   }
 }
 

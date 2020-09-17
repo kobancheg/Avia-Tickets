@@ -16,8 +16,8 @@ class Locations {
     const response = await Promise.all([
       this.api.countries(),
       this.api.cities(),
-      this.api.airlines()
-    ])
+      this.api.airlines(),
+    ]);
 
     const [countries, cities, airlines] = response;
     this.countries = this.serializeCountries(countries);
@@ -29,7 +29,9 @@ class Locations {
   }
 
   getCityCodeByKey(key) {
-    const city = Object.values(this.cities).find((item) => item.full_name === key);
+    const city = Object.values(this.cities).find(
+      (item) => item.full_name === key
+    );
     return city.code;
   }
 
@@ -58,7 +60,7 @@ class Locations {
       item.name = item.name || item.name_translations.en;
       acc[item.code] = item;
       return acc;
-    }, {})
+    }, {});
   }
 
   serializeCountries(countries) {
@@ -66,7 +68,7 @@ class Locations {
     return countries.reduce((acc, country) => {
       acc[country.code] = country;
       return acc;
-    }, {})
+    }, {});
   }
 
   serializeCities(cities) {
@@ -98,9 +100,9 @@ class Locations {
         airline_name: this.getAirlineNameByCode(ticket.airline),
         departure_at: this.formatDate(ticket.departure_at, 'dd MMM yyyy hh:mm'),
         return_at: this.formatDate(ticket.return_at, 'dd MMM yyyy hh:mm'),
-        id: Math.random()
-      }
-    })
+        id: Math.random(),
+      };
+    });
   }
 }
 
