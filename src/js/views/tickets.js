@@ -37,9 +37,11 @@ class TicketsUI {
   }
 
   returnFavoriteBtnColor(id) {
-    const element = document.getElementById(id).querySelector('a');
-    element.classList.remove('yellow', 'darken-2');
-    element.innerText = 'add to favorite';
+    const elements = [...document.querySelectorAll('.ticket-card')];
+    const div = elements.find((element) => element.dataset.id === id);
+    const link = div.querySelector('.favorite');
+    link.classList.remove('yellow', 'darken-2');
+    link.innerText = 'add to favorite';
   }
 
   static emptyMsgTemplate() {
@@ -53,7 +55,7 @@ class TicketsUI {
   static ticketTemplate(ticket, currency) {
     return `
         <div class="col s12 m6">
-          <div class="card ticket-card" id="${ticket.id}">
+          <div class="card ticket-card" data-id="${ticket.data_id}">
             <div class="ticket-airline d-flex align-items-center">
               <img src="${ticket.airline_logo}" class="ticket-airline-img" />
               <span class="ticket-airline-name">${ticket.airline_name}</span>

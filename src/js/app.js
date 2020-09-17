@@ -53,8 +53,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function setFavoritesTickets(element) {
     if (element.target.classList.contains('favorite')) {
-      const id = element.target.closest('div[id]').id;
-      const ticket = locations.lastSearch.find((item) => item.id == id);
+      const id = element.target.closest('[data-id]').dataset.id;
+      const ticket = locations.lastSearch.find((item) => item.data_id == id);
       favorites.addTicketToFavorites(ticket);
       dropdownUI.renderDropdownListTiskets(favorites.favoriteTickets);
       element.target.innerText = 'added to favorite';
@@ -64,8 +64,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function delFavoritesTickets(element) {
     if (element.target.classList.contains('delete')) {
-      const id = element.target.closest('div[id]').id;
-      const ticket = locations.lastSearch.find((item) => item.id == id);
+      const id = element.target.closest('[data-id]').dataset.id;
+      const ticket = locations.lastSearch.find((item) => item.data_id == id);
       favorites.removeFromFavorites(ticket);
       dropdownUI.renderDropdownListTiskets(favorites.favoriteTickets);
       ticketsUI.returnFavoriteBtnColor(id);

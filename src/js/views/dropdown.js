@@ -27,7 +27,7 @@ class DropdownUI {
 
   static dropdownTemlate(ticket, currency) {
     return `
-    <div class="favorites-list" id="${ticket.id}">
+    <div class="favorites-list" data-id="${ticket.data_id}">
       <div class="ticket-airline d-flex align-items-center mx-1">
         <img src="${ticket.airline_logo}" class="ticket-airline-img" />
         <span>${ticket.airline_name}</span>
